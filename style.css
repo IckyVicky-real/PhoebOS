@@ -1,0 +1,29 @@
+body{
+    background-color: gold;
+    color: white;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-image: url(https://images.ctfassets.net/2hwzhse7szu0/7Cu6sWD8iNzAXAHn31qfEn/9d04438aaac48b9eb372e902239a783d/Athens_1800x600.jpg);
+
+  /* Scale the image to cover the entire screen without distortion */
+  background-size: cover;
+
+  /* Center the image vertically and horizontally */
+  background-position: center center;
+
+  /* Prevent the image from repeating like a grid wallpaper */
+  background-repeat: no-repeat;
+
+  /* Keep the background fixed in place while scrolling */
+  background-attachment: fixed;
+
+  /* Ensure the body takes up at least the full height of the viewport */
+  min-height: 100vh;
+  
+  /* Reset default margins to prevent accidental scrollbars */
+  margin: 0;
+}
+.TitlePage{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+}

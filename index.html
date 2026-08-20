@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>PhoebOS</title>
+  </head>
+
+  <body>
+    <script>
+          function updateTime() {
+    var TimeToGetaWatch = new Date().toLocaleString();
+    var timeText = document.querySelector("#TimeForTime");
+    timeText.innerHTML = TimeToGetaWatch
+          }
+          setInterval(updateTime, 1000);
+</script>
+    <div>
+      <div class="TitlePage">
+        <div style="border: thick double #ebd726;">
+          <div style="padding: 2px; (additional styles)">
+    <h1>Welcome to PhoebOS</h1>
+    <br>
+    <h3>The digital temple to Apollo</h3>
+    </div>
+    <div style="display: flex;">
+        <p id="TimeForTime">
+          Time
+        </p>
+    </div>
+  </body>
+
+</html>
