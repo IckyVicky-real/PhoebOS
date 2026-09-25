@@ -43,7 +43,7 @@ transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);backgrou
 			<input type="text" id="city-input" placeholder="Enter city name">
 			<button id="city-input-btn">Get Weather</button>
       <p id="WeatherHere">
-        Enter your city to see the weather!
+        Work In Progress!!!
       </p>
     </div>
   <div id="EpicEpics" style="display: none; position: absolute; top: 50%; left: 50%;>
@@ -55,10 +55,10 @@ transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);backgrou
     <script src="script.js"></script>
 
 <script>
-  function GetWeather(){
+  cButton.addEventListener(function GetWeather(){
 var cName = document.getElementById(textbox).value;
 console.log(cName);
-};
+});
   var cName = `Berlin`;
   const baseurl = `https://nimbus-api-gxuc.onrender.com/api/v1/weather?city=Berlin`;
   const textbox = document.getElementById('city-input');
