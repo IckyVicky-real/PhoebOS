@@ -6,27 +6,85 @@
   </head>
 
   <body>
-    <script>
-          function updateTime() {
-    var TimeToGetaWatch = new Date().toLocaleString();
-    var timeText = document.querySelector("#TimeForTime");
-    timeText.innerHTML = TimeToGetaWatch
-          }
-          setInterval(updateTime, 1000);
-</script>
-    <div>
-      <div class="TitlePage">
-        <div style="border: thick double #ebd726;">
-          <div style="padding: 2px; (additional styles)">
+      <div id="welcome" style="position: absolute; top: 50%; left: 50%; background-color: #fff2cec6;>
+transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1); #ebd726;padding: 2px class="TitlePage">
+<p style="cursor: pointer" id="welcomeclose">☁️</p>
     <h1>Welcome to PhoebOS</h1>
-    <br>
     <h3>The digital temple to Apollo</h3>
+    <h4>(press the emojis to close and open this window!)</h4>
+    <p id="welcomeheader"> 
+		Handle
+	</p>
     </div>
-    <div style="display: flex;">
+    <div class="TopBar" style="display: flex; gap: 20px;">
+      <p style="cursor: pointer" id="welcomeopen">
+        ☀️
+      </p>
         <p id="TimeForTime">
           Time
         </p>
     </div>
+          <div class="Selected" style="filter: drop-shadow(0 0 16px rgb(255, 255, 0));"></div>
+    <div id="desktopApps" style="padding-top: 40px; padding-left: 16px;">
+      <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+        <img id="EpicEpicsOpen" src="https://www.kuraplan.com/_next/image?url=https%3A%2F%2Fyeeqtrevjmgjepxchuhw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fgenerated-images%2Flibrary-drama_masks_comedy_tragedy_paired-watermarked.png&w=1920&q=60"style="cursor: pointer; border-radius: 16px;" class="SameSize">
+        <p id="EpicEpicsOpen" style="margin: 0px; color: #fff; ">Epic Epics</p>
+      </div>
+  </div>
+  <div id="desktopApps" style="padding-top: 40px; padding-left: 16px;">
+      <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+        <img id="WeatherIcon" style="cursor: pointer; border-radius: 16px;" src="https://cdn-icons-png.flaticon.com/512/7477/7477790.png" class="SameSize">
+        <p id="WeatherAppText" style="margin: 0px; color: #fff; ">Weather</p>
+      </div>
+  </div>
+    <div id="WeatherApp" style="display: none; position: absolute; top: 50%; left: 50%;>
+transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);background-color: #fff2cec6; #ebd726;padding: 2px class="TitlePage">
+<p style="cursor: pointer" id="WeatherClose">x</p>
+			<input type="text" id="city-input" placeholder="Enter city name">
+			<button id="city-input-btn">Get Weather</button>
+      <p id="WeatherHere">
+        Enter your city to see the weather!
+      </p>
+    </div>
+  <div id="EpicEpics" style="display: none; position: absolute; top: 50%; left: 50%;>
+transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);background-color: #fff2cec6; #ebd726;padding: 2px class="TitlePage">
+<p style="cursor: pointer" id="EpicClose">x</p>
+    <h1>Epic Epics!</h1>
+    <a href="https://www.gutenberg.org/files/22381/22381-h/22381-h.htm">    <h3>A collection of great ancient greek stories</h3></a>
+    </div>
+    <script src="script.js"></script>
+
+<script>
+  function GetWeather(){
+var cName = document.getElementById(textbox).value;
+console.log(cName);
+};
+  var cName = `Berlin`;
+  const baseurl = `https://nimbus-api-gxuc.onrender.com/api/v1/weather?city=Berlin`;
+  const textbox = document.getElementById('city-input');
+  var cButton = document.getElementById('city-input-button');
+  var test = CloudsAndShit();
+  var WeatherStuff = document.querySelector("#WeatherHere");
+  WeatherStuff.innerHTML = test
+  function CloudsAndShit(){
+  fetch(baseurl)
+    .then(res => res.json())
+    .then(data => {
+      const weatherHtml = data.temp_celsius + '°C • ' + data.description +
+        '<br>Wind: ' + data.wind_speed_kmh + ' km/h • Humidity: ' + data.humidity_percent + '%';
+      document.getElementById('WeatherHere').innerHTML =
+        '<strong>' + data.location + '</strong><br>' + weatherHtml;
+        return data.temp_celsius + '°C • ' + data.description +
+        '<br>Wind: ' + data.wind_speed_kmh + ' km/h • Humidity: ' + data.humidity_percent + '%';
+    })
+    .catch(function() {
+      document.getElementById('WeatherHere').innerHTML =
+        '<p>Weather not available right now</p>';
+        return weatherHtml + 'here is your weather'
+    });
+    cButton.addEventListener('click', GetWeather, false);
+}
+</script>
   </body>
 
 </html>

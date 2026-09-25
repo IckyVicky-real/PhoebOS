@@ -26,4 +26,13 @@ body{
 .TitlePage{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
+    flex-direction: column;
+}
+a{
+  color: gold;
+}
+.SameSize{
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
 }
