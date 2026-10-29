@@ -42,9 +42,12 @@ transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);backgrou
 <p style="cursor: pointer" id="WeatherClose">x</p>
 			<input type="text" id="city-input" placeholder="Enter city name">
 			<button id="city-input-btn">Get Weather</button>
-      <p id="WeatherHere">
-        Work In Progress!!!
+      <div class="weatherHere">
+        <h2 id="cityName"></h2>
+        <p id="temperatureData"></p>
+        <p id="description"></p>
       </p>
+    </div>
     </div>
   <div id="EpicEpics" style="display: none; position: absolute; top: 50%; left: 50%;>
 transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);background-color: #fff2cec6; #ebd726;padding: 2px class="TitlePage">
@@ -52,39 +55,12 @@ transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);backgrou
     <h1>Epic Epics!</h1>
     <a href="https://www.gutenberg.org/files/22381/22381-h/22381-h.htm">    <h3>A collection of great ancient greek stories</h3></a>
     </div>
+        <div id="desktopApps" style="padding-top: 40px; padding-left: 16px;">
+      <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+        <img id="NotesApp" src="https://cdn-icons-png.flaticon.com/512/5394/5394835.png"style="cursor: pointer; border-radius: 16px;" class="SameSize">
+        <p id="NotesText" style="margin: 0px; color: #fff; ">Notes</p>
+      </div>
     <script src="script.js"></script>
-
-<script>
-  cButton.addEventListener(function GetWeather(){
-var cName = document.getElementById(textbox).value;
-console.log(cName);
-});
-  var cName = `Berlin`;
-  const baseurl = `https://nimbus-api-gxuc.onrender.com/api/v1/weather?city=Berlin`;
-  const textbox = document.getElementById('city-input');
-  var cButton = document.getElementById('city-input-button');
-  var test = CloudsAndShit();
-  var WeatherStuff = document.querySelector("#WeatherHere");
-  WeatherStuff.innerHTML = test
-  function CloudsAndShit(){
-  fetch(baseurl)
-    .then(res => res.json())
-    .then(data => {
-      const weatherHtml = data.temp_celsius + '°C • ' + data.description +
-        '<br>Wind: ' + data.wind_speed_kmh + ' km/h • Humidity: ' + data.humidity_percent + '%';
-      document.getElementById('WeatherHere').innerHTML =
-        '<strong>' + data.location + '</strong><br>' + weatherHtml;
-        return data.temp_celsius + '°C • ' + data.description +
-        '<br>Wind: ' + data.wind_speed_kmh + ' km/h • Humidity: ' + data.humidity_percent + '%';
-    })
-    .catch(function() {
-      document.getElementById('WeatherHere').innerHTML =
-        '<p>Weather not available right now</p>';
-        return weatherHtml + 'here is your weather'
-    });
-    cButton.addEventListener('click', GetWeather, false);
-}
-</script>
   </body>
 
 </html>
