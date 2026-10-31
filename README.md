@@ -11,4 +11,6 @@ An auto updating top bar clock
 Several openable windows
 A link to literature resources
 A weather app
-A notes app(work in progress! Not functional)
+A notes app
+A gallery
+Background music
