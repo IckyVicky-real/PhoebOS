@@ -12,9 +12,6 @@ transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1); #ebd726
     <h1>Welcome to PhoebOS</h1>
     <h3>The digital temple to Apollo</h3>
     <h4>(press the emojis to close and open this window!)</h4>
-    <p id="welcomeheader"> 
-		Handle
-	</p>
     </div>
     <div class="TopBar" style="display: flex; gap: 20px;">
       <p style="cursor: pointer" id="welcomeopen">
@@ -23,8 +20,54 @@ transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1); #ebd726
         <p id="TimeForTime">
           Time
         </p>
+        <audio controls autoplay loop>
+          <source src="https://github.com/IckyVicky-real/PhoebOS/raw/refs/heads/main/harumachimusic-peaceful-garden-healing-light-piano-for-meditation-zen-landscapes-112199.mp3" type="audio/mpeg">
+        </audio>
     </div>
           <div class="Selected" style="filter: drop-shadow(0 0 16px rgb(255, 255, 0));"></div>
+          <div id="desktopApps" style="padding-top: 40px; padding-left: 16px;">
+      <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+        <img id="GalleryIcon" src="https://img.icons8.com/sf-regular-filled/1200/stack-of-photos.jpg"style="cursor: pointer; border-radius: 16px;" class="SameSize">
+        <p id="GalleryText" style="margin: 0px; color: #fff; ">Gallery</p>
+      </div>
+        </div>
+          <div id="GalleryApp" style="display: none; position: absolute; top: 50%; left: 50%;>
+transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);background-color: #fff2cec6; #ebd726;padding: 2px class="TitlePage">
+<p style="cursor: pointer" id="GalleryClose">x</p>
+    <h1>Gallery</h1>
+    <div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="https://www.theoi.com/image/K5.16Apollon.jpg">
+      <img src="https://www.theoi.com/image/K5.16Apollon.jpg" alt="Painting of Apollo">
+    </a>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="https://www.worldhistory.org/uploads/images/3514.jpg">
+      <img src="https://www.worldhistory.org/uploads/images/3514.jpg" alt="Statue of Apollo">
+    </a>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="https://www.aongking.com/wp-content/uploads/2020/09/Large-outdoor-apollo-chariot-and-horses-bronze-sculpture.jpg">
+      <img src="https://www.aongking.com/wp-content/uploads/2020/09/Large-outdoor-apollo-chariot-and-horses-bronze-sculpture.jpg" alt="Statue of Apollo on his chariot">
+    </a>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="https://news.stanford.edu/__data/assets/image/0025/149335/Listicle_Sun_1.jpg">
+      <img src="https://news.stanford.edu/__data/assets/image/0025/149335/Listicle_Sun_1.jpg" alt="The Sun">
+    </a>
+  </div>
+</div>
+<div class="clearfix"></div>
+    </div>
     <div id="desktopApps" style="padding-top: 40px; padding-left: 16px;">
       <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
         <img id="EpicEpicsOpen" src="https://www.kuraplan.com/_next/image?url=https%3A%2F%2Fyeeqtrevjmgjepxchuhw.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fgenerated-images%2Flibrary-drama_masks_comedy_tragedy_paired-watermarked.png&w=1920&q=60"style="cursor: pointer; border-radius: 16px;" class="SameSize">
@@ -57,9 +100,21 @@ transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);backgrou
     </div>
         <div id="desktopApps" style="padding-top: 40px; padding-left: 16px;">
       <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
-        <img id="NotesApp" src="https://cdn-icons-png.flaticon.com/512/5394/5394835.png"style="cursor: pointer; border-radius: 16px;" class="SameSize">
+        <img id="NotesAppIcon" src="https://cdn-icons-png.flaticon.com/512/5394/5394835.png"style="cursor: pointer; border-radius: 16px;" class="SameSize">
         <p id="NotesText" style="margin: 0px; color: #fff; ">Notes</p>
       </div>
+        </div>
+        <div id="NotesApp" style="display: none; position: absolute; top: 50%; left: 50%;>
+transform: translate(-50%, -50%); border: 4mm ridge rgb(211 220 50 / 1);background-color: #fff2cec6; #ebd726;padding: 2px class="TitlePage">
+<div class="NotesStuff">
+  <p style="cursor: pointer" id="NotesClose">x</p>
+  <h1>Notes App</h1>
+  <form id="NoteForm">
+    <textarea id="NoteInput" placeholder="Write your note..." required></textarea>
+    <button type="Submit">Add Note</button>
+  </form>
+  <div id="NotesList"></div>
+</div>
     <script src="script.js"></script>
   </body>
 

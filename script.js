@@ -213,3 +213,159 @@ function fetchWeather(location) {
             console.error('Error fetching weather data:', error);
         });
 }
+
+dragElement(document.getElementById("NotesApp"));
+
+function dragElement(element) {
+  var initialX = 0;
+  var initialY = 0;
+  var currentX = 0;
+  var currentY = 0;
+
+  if (document.getElementById(element.id + "header")) {
+    document.getElementById(element.id + "header").onmousedown = startDragging;
+  } else {
+    element.onmousedown = startDragging;
+  }
+
+  function startDragging(e) {
+    e = e || window.event;
+
+    initialX = e.clientX;
+    initialY = e.clientY;
+    document.onmouseup = stopDragging;
+    document.onmousemove = dragElement;
+  }
+
+  function dragElement(e) {
+    e = e || window.event;
+
+    currentX = initialX - e.clientX;
+    currentY = initialY - e.clientY;
+    initialX = e.clientX;
+    initialY = e.clientY;
+    element.style.top = (element.offsetTop - currentY) + "px";
+    element.style.left = (element.offsetLeft - currentX) + "px";
+  }
+
+  function stopDragging() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+var NotesApp = document.querySelector("#NotesApp")
+function closeWindow(element) {
+  element.style.display = "none"
+}
+function openWindow(element) {
+  element.style.display = "block"
+}
+var NotesClose = document.querySelector("#NotesClose")
+
+var NotesAppIcon = document.querySelector("#NotesAppIcon")
+NotesClose.addEventListener("click", function() {
+  closeWindow(NotesApp);
+});
+
+NotesAppIcon.addEventListener("click", function() {
+  openWindow(NotesApp);
+});
+
+const noteForm = document.getElementById('NoteForm');
+const noteInput = document.getElementById('NoteInput');
+const notesList = document.getElementById('NotesList');
+
+let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+function saveNotes() {
+  localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+function renderNotes() {
+  notesList.innerHTML = '';
+  notes.forEach((note, index) => {
+    const div = document.createElement('div');
+    div.className = 'note';
+    div.textContent = note;
+
+    const delBtn = document.createElement('button');
+    delBtn.textContent = 'X';
+    delBtn.onclick = () => {
+      notes.splice(index, 1);
+      saveNotes();
+      renderNotes();
+    };
+
+    div.appendChild(delBtn);
+    notesList.appendChild(div);
+  });
+}
+
+noteForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const note = noteInput.value.trim();
+  if (!note) return;
+  notes.push(note);
+  noteInput.value = '';
+  saveNotes();
+  renderNotes();
+});
+
+renderNotes();
+
+dragElement(document.getElementById("GalleryApp"));
+
+function dragElement(element) {
+  var initialX = 0;
+  var initialY = 0;
+  var currentX = 0;
+  var currentY = 0;
+
+  if (document.getElementById(element.id + "header")) {
+    document.getElementById(element.id + "header").onmousedown = startDragging;
+  } else {
+    element.onmousedown = startDragging;
+  }
+
+  function startDragging(e) {
+    e = e || window.event;
+
+    initialX = e.clientX;
+    initialY = e.clientY;
+    document.onmouseup = stopDragging;
+    document.onmousemove = dragElement;
+  }
+
+  function dragElement(e) {
+    e = e || window.event;
+
+    currentX = initialX - e.clientX;
+    currentY = initialY - e.clientY;
+    initialX = e.clientX;
+    initialY = e.clientY;
+    element.style.top = (element.offsetTop - currentY) + "px";
+    element.style.left = (element.offsetLeft - currentX) + "px";
+  }
+
+  function stopDragging() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+var GalleryApp = document.querySelector("#GalleryApp")
+function closeWindow(element) {
+  element.style.display = "none"
+}
+function openWindow(element) {
+  element.style.display = "block"
+}
+var GalleryClose = document.querySelector("#GalleryClose")
+
+var GalleryIcon = document.querySelector("#GalleryIcon")
+GalleryClose.addEventListener("click", function() {
+  closeWindow(GalleryApp);
+});
+
+GalleryIcon.addEventListener("click", function() {
+  openWindow(GalleryApp);
+});
